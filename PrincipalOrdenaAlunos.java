@@ -17,6 +17,10 @@ public class PrincipalOrdenaAlunos {
             lista.add(new Aluno(Util.gerarPalavra(3), gerador.nextInt(18, 70)));
         }
 
+         ArrayList<Aluno> lista2 = new ArrayList<>(lista);
+         ArrayList<Aluno> lista3 = new ArrayList<>(lista);
+         ArrayList<Aluno> lista4 = new ArrayList<>(lista);
+
         // Testes de ordenacao da lista de alunos em diferentes Threads
 
         // Ordena pelo sort do java
@@ -30,7 +34,7 @@ public class PrincipalOrdenaAlunos {
         // Ordena pelo metodo bolha
         new Thread() {
             public void run() {
-                Ordenacao.bolhaAluno(lista);
+                Ordenacao.bolhaAluno(lista2);
                 System.out.println("Feito.... Bolha");
             }
         }.start();
@@ -38,7 +42,7 @@ public class PrincipalOrdenaAlunos {
         // Ordena pelo metodo selecao
         new Thread() {
             public void run() {
-                Ordenacao.selecaoAluno(lista);
+                Ordenacao.selecaoAluno(lista3);
                 System.out.println("Feito.... Selecao");
             }
         }.start();
@@ -46,7 +50,7 @@ public class PrincipalOrdenaAlunos {
         // Ordena pelo metodo insercao
         new Thread() {
             public void run() {
-                Ordenacao.insercaoAluno(lista);
+                Ordenacao.insercaoAluno(lista4);
                 System.out.println("Feito.... Insercao");
             }
         }.start();
